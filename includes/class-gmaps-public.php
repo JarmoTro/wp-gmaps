@@ -53,7 +53,7 @@ class Gmaps_Public {
      */
     public function enqueue_scripts() {
 
-        wp_enqueue_script($this->plugin_name . '-main-scripts', plugin_dir_url( __DIR__ ) . '/public/js/gmaps.js', array(), $this->version, true);
+        wp_enqueue_script($this->plugin_name . '-main-scripts', plugin_dir_url( __DIR__ ) . '/public/js/gmaps.min.js', array(), $this->version, true);
 
         $google_maps_api_key = get_option("gmaps_api_key");
 

@@ -5,7 +5,7 @@
  * Plugin URI:        https://github.com/JarmoTro/wp-gmaps
  * Description:       Minimalistic plugin that allows integration of Google Maps through the JS API.
  * Requires at least: 6.3
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Jarmo Troska
  * Author URI:        https://github.com/JarmoTro/wp-gmaps
  * License:           GPL-2.0+
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('GMAPS_VERSION', '1.0.2');
+define('GMAPS_VERSION', '1.0.3');
 
 require plugin_dir_path(__FILE__) . 'includes/class-gmaps.php';
 
