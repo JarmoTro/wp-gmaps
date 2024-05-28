@@ -41,7 +41,6 @@ function gmapsInit(){
         if(marker.toLowerCase() != "false"){
             new google.maps.marker.AdvancedMarkerElement({
                 map,
-                title: "test",
                 position: pos,
                 content: markerPin.element
             });
