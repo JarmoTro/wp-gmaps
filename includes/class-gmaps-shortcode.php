@@ -82,8 +82,6 @@ class Gmaps_Shortcode{
 
         </div>
 
-        </gmp-map>
-
         <?php
 
         return ob_get_clean();
