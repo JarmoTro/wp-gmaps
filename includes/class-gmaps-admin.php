@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * The public-facing functionality of the plugin.
+ * The admin-facing functionality of the plugin.
  *
  * @link       https://github.com/JarmoTro/wp-gmaps
  * @since      1.0.0
@@ -53,10 +53,20 @@ class Gmaps_Admin{
 
     }
 
+    /**
+     * Renders the settings page view.
+     *
+     * @since     1.0.0
+     */
     public function display_settings_page(){   
         Gmaps_Helper::get_view("gmaps-admin", true);
     }
 
+    /**
+     * Adds settings page to wp-admin menu.
+     *
+     * @since     1.0.0
+     */
     public function add_settings_page_to_menu(){
 
         add_menu_page(
@@ -71,10 +81,20 @@ class Gmaps_Admin{
 
     }
 
+    /**
+     * Registers and enqueues all styles for the admin-facing side of the site.
+     *
+     * @since     1.0.0
+     */
     public function enqueue_admin_css_dependencies(){
         wp_enqueue_style($this->plugin_name . '-admin-main-styles', plugin_dir_url( __DIR__ ) . '/public/css/gmaps-admin.css', array(), $this->version, 'all');
     }
 
+    /**
+     * Registers all used settings fields.
+     *
+     * @since     1.0.0
+     */
     public function register_settings_fields(){
         register_setting( 'gmaps_main_settings', 'gmaps_api_key'); 
     }
