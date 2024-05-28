@@ -59,9 +59,9 @@ class Gmaps_Public {
 
         if($google_maps_api_key){
 
-            $google_maps_js_src = "https://maps.googleapis.com/maps/api/js?key=" . $google_maps_api_key . "&libraries=maps,marker&callback=gmapsInit";
+            $google_maps_js_src = "https://maps.googleapis.com/maps/api/js?key=" . $google_maps_api_key . "&libraries=maps,marker&callback=gmapsInit&loading=async";
 
-            wp_enqueue_script($this->plugin_name . '-gmaps', $google_maps_js_src, array(), $this->version, ["strategy" => "async", "in_footer" => true]);
+            wp_enqueue_script($this->plugin_name . '-gmaps', $google_maps_js_src, array(), $this->version, ["strategy" => "defer", "in_footer" => true]);
     
         }
         
