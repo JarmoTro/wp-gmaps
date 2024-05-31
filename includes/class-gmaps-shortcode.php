@@ -50,6 +50,9 @@ class Gmaps_Shortcode{
                 'marker_bg' => "false",
                 'marker_border' => "false",
                 'marker_scale' => "false",
+                'disable_moving' => "false",
+                'disable_zoom' => "false",
+                'disable_ui' => "false"
             ),
             $atts 
         );
@@ -64,6 +67,9 @@ class Gmaps_Shortcode{
         $marker_bg = $atts["marker_bg"];
         $marker_border = $atts["marker_border"];
         $marker_scale = $atts["marker_scale"];
+        $disable_moving = $atts["disable_moving"];
+        $disable_zoom = $atts["disable_zoom"];
+        $disable_ui = $atts["disable_ui"];
 
         ob_start();
 
@@ -78,6 +84,9 @@ class Gmaps_Shortcode{
         data-marker-bg="<?php echo $marker_bg ?>"
         data-marker-border="<?php echo $marker_border ?>"
         data-marker-scale="<?php echo $marker_scale ?>"
+        data-disable-moving="<?php echo $disable_moving ?>"
+        data-disable-zoom="<?php echo $disable_zoom ?>"
+        data-disable-ui="<?php echo $disable_ui ?>"
         style="width: <?php echo $width ?>; height: <?php echo $height ?>;">
 
         </div>

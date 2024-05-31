@@ -89,3 +89,27 @@ Float.
 Scale of the marker.
 
 Defaults to Google default.
+
+### disable_ui
+
+Bool.
+
+If true disables the default Google Maps UI.
+
+Defaults to "false".
+
+### disable_zoom
+
+Bool.
+
+If true disables the ability to zoom.
+
+Defaults to "false".
+
+### disable_moving
+
+Bool.
+
+If true disables the ability to move on the map. Zooming will still be available.
+
+Defaults to "false".

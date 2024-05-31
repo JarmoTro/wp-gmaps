@@ -7,6 +7,9 @@ function gmapsInit(){
         const zoom = parseInt(mapEl.getAttribute("data-zoom"));
         const mapId = mapEl.getAttribute("data-map-id");
         const center = mapEl.getAttribute("data-center");
+        const disableMoving = mapEl.getAttribute("data-disable-moving");
+        const disableZoom = mapEl.getAttribute("data-disable-zoom");
+        const disableUI = mapEl.getAttribute("data-disable-ui");
         const lat = parseFloat(center.split(",")[0]);
         const lng = parseFloat(center.split(",")[1]);
         const pos = { lat: lat, lng: lng };
@@ -29,14 +32,27 @@ function gmapsInit(){
 
         if(markerScale.toLowerCase() != "false") markerPinOptions.scale = parseFloat(markerScale);
 
-        const markerPin = new google.maps.marker.PinElement(markerPinOptions);
-
-        var map = new google.maps.Map(mapEl, {
+        const mapOptions = {
             zoom: zoom,
             center: pos,
-            disableDefaultUI: true,
-            mapId, mapId
-        });
+            mapId, mapId,
+        }
+
+        if (disableZoom.toLowerCase() != "false") mapOptions.maxZoom = zoom;
+
+        if (disableZoom.toLowerCase() != "false") mapOptions.minZoom = zoom;
+
+        if (disableZoom.toLowerCase() != "false") mapOptions.scrollwheel = false;
+
+        if (disableMoving.toLowerCase() != "false") mapOptions.draggable = false;
+
+        if (disableMoving.toLowerCase() != "false") mapOptions.panControl = false;
+
+        if (disableUI.toLowerCase() != "false") mapOptions.disableDefaultUI = true;
+
+        const markerPin = new google.maps.marker.PinElement(markerPinOptions);
+
+        var map = new google.maps.Map(mapEl, mapOptions);
 
         if(marker.toLowerCase() != "false"){
             new google.maps.marker.AdvancedMarkerElement({
