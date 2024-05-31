@@ -87,7 +87,7 @@ class Gmaps_Admin{
      * @since     1.0.0
      */
     public function enqueue_admin_css_dependencies(){
-        wp_enqueue_style($this->plugin_name . '-admin-main-styles', plugin_dir_url( __DIR__ ) . '/public/css/gmaps-admin.min.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->plugin_name . '-admin-main-styles', plugin_dir_url( __DIR__ ) . '/public/css/gmaps-admin' . Gmaps_Helper::maybe_minify_file_extension(".css"), array(), $this->version, 'all');
     }
 
     /**

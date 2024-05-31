@@ -17,6 +17,29 @@ if (!defined('ABSPATH')) {
  class Gmaps_Helper{
 
     /**
+     * Sets the extension to be minified if debugging is not enabled.
+     *
+     * @since     1.1.2
+     * @param     string    $file_ext    Extension of the file.
+     * @return    string    File extension with possible .min prefix.
+     */
+    static function maybe_minify_file_extension($file_ext)
+    {
+
+        $is_debug = defined('WP_DEBUG') ? WP_DEBUG : false;
+
+        if ($is_debug) return $file_ext;
+
+        $extensions_to_minify = [".css", ".js"];
+
+        if (in_array($file_ext, $extensions_to_minify)) {
+            return ".min" . $file_ext;
+        }
+
+        return $file_ext;
+    }
+
+    /**
      * Initialize the class and set its properties.
      *
      * @since     1.0.0
